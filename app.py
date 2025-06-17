@@ -1,14 +1,17 @@
 from flask import Flask, request, render_template
 from transformers import pipeline
 import os
+import torch
 
 app = Flask(__name__)
 generator = None  # define globally but not load
 
+torch.set_num_threads(4)
+
 def get_generator():
     global generator
     if generator is None:
-        generator = pipeline("text2text-generation", model="google/flan-t5-small")
+        generator = pipeline("text2text-generation", model="google/flan-t5-base")
     return generator
 
 @app.route("/", methods=["GET", "POST"])
@@ -34,6 +37,6 @@ def index():
     return render_template("index.html", tagline=tagline)
 
 
-# if __name__ == "__main__":
-#     port = int(os.environ.get("PORT", 5000))
-#     app.run(host="0.0.0.0", port=port)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 3001))
+    app.run(host="0.0.0.0", port=port)
