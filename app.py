@@ -6,6 +6,8 @@ import os
 # Optimize for Apple Silicon CPU usage
 torch.set_num_threads(4)
 
+generator = None  # Global placeholder for the model
+
 app = Flask(__name__)
 
 def get_generator():
