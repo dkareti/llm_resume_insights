@@ -9,7 +9,7 @@ torch.set_num_threads(4)
 app = Flask(__name__)
 
 # Load the instruction-tuned model
-generator = pipeline("text2text-generation", model="google/flan-t5-base")
+generator = pipeline("text2text-generation", model="google/flan-t5-small")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
