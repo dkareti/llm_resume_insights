@@ -28,7 +28,8 @@ def index():
             f"who is skilled in {skills} and holds a {degree} in {field}."
         )
 
-        result = generator(prompt, max_length=40, temperature=0.9)
+        gen = get_generator()
+        result = gen(prompt, max_length=40, temperature=0.9)
         tagline = result[0]["generated_text"].strip()
     return render_template("index.html", tagline=tagline)
 
