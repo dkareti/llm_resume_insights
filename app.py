@@ -15,11 +15,13 @@ def index():
         education = request.form["education"]
 
         prompt = (
-            f"Create a professional tagline for a {job_title} skilled in {skills}, "
-            f"with a background in {education}."
+            "Job Title: Software Engineer\n"
+            "Skills: Python, AI, Prompt Engineering\n"
+            "Education: M.Eng in Computer Engineering at Dartmouth College\n"
+            "Tagline:"
         )
 
-        result = generator(prompt, max_length=50, do_sample=True, temperature=0.8)
+        result = generator(prompt, max_length=60, do_sample=True, temperature=0.9)
         tagline = result[0]["generated_text"]
     return render_template("index.html", tagline=tagline)
     
