@@ -33,6 +33,10 @@ def index():
         tagline = result[0]["generated_text"].strip()
     return render_template("index.html", tagline=tagline)
 
+@app.route("/ping")
+def ping():
+    return "Flask is alive!"
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
