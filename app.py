@@ -18,14 +18,18 @@ def index():
         skills = request.form["skills"]
         education = request.form["education"]
 
-        prompt = (
-            f"Create a professional tagline for a {job_title} skilled in {skills}, "
-            f"with a background in {education}."
-        )
+        prompt = f"""\
+            Write a one-sentence professional tagline for LinkedIn.
+
+            Job Title: {job_title}
+            Key Skills: {skills}
+            Education/Background: {education}
+
+            Tagline:"""
 
         result = generator(prompt, max_length=40, temperature=0.9)
         tagline = result[0]["generated_text"].strip()
     return render_template("index.html", tagline=tagline)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=3001)
