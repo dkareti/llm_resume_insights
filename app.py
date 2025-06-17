@@ -17,7 +17,14 @@ def index():
         file = request.files['resume']
         if file and file.filename.endswith('.pdf'):
             resume_text = extract_text(file)
-            prompt = f"Critique the following resume:\n{resume_text}\n\nInclude strengths, weaknesses, and areas for improvement."
+            prompt = (
+                "You are a professional resume reviewer.\n"
+                "Please read the following resume and return a short critique in three parts:\n"
+                "1. Strengths\n2. Weaknesses\n3. Suggestions for improvement.\n\n"
+                "Only generate one response and do not repeat yourself.\n"
+                "Resume:\n"
+                f"{resume_text}"
+            )
             result = generator(prompt, max_length=500, do_sample=True)
             critique = result[0]['generated_text']
     return render_template('index.html', critique=critique)

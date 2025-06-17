@@ -22,3 +22,7 @@ llm_resume_critic/
 │
 └── static/
     └── style.css
+
+
+
+To get better performance use different models BUT more parameters needs more GPU power.
