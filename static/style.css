@@ -4,7 +4,16 @@
     --beige: #efefef;
 }
 
-
+input[type="text"] {
+  width: 100%;                /* Make inputs full-width */
+  padding: 10px;
+  font-size: 1rem;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;     /* Ensures padding doesn't exceed width */
+}
 
 body {
   font-family: 'Inter', sans-serif;

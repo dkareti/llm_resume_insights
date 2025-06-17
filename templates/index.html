@@ -1,21 +1,34 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <title>AI Resume Tagline Generator</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <h1>Generate Your AI-Powered Tagline</h1>
-    <p class="subtext">Upload your resume and get a personalized, professional tagline in seconds. </p>
+    <h1>Generate Your LinkedIn Tagline with AI</h1>
+    <p class="subtext">Enter a few quick details and receive a polished, professional tagline.</p>
 
-    <form method="post">
-        <input type="text" name="job_title" placeholder="Job Title (e.g., Data Scientist)" required>
-        <input type="text" name="skills" placeholder="Key Skills (e.g., Python, NLP, Flask)" required>
-        <input type="text" name="education" placeholder="Education or Background (e.g., MS in Computer Engineering)" required>
-        <button type="submit">Generate Tagline</button>
+    <form method="post" class="tagline-form">
+      <label for="job_title">Job Title</label>
+      <input type="text" name="job_title" id="job_title" placeholder="e.g. Software Engineer" required>
+
+      <label for="skills">Key Skills</label>
+      <input type="text" name="skills" id="skills" placeholder="e.g. Python, AI, Prompt Engineering" required>
+
+      <fieldset>
+        <legend>Educational Background</legend>
+
+        <label for="degree">Degree</label>
+        <input type="text" name="degree" id="degree" placeholder="e.g. Masters" required>
+
+        <label for="field">Field of Study</label>
+        <input type="text" name="field" id="field" placeholder="e.g. Data Science" required>
+      </fieldset>
+
+      <button type="submit">Generate Tagline</button>
     </form>
 
     {% if tagline %}

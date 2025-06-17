@@ -16,11 +16,12 @@ def index():
     if request.method == "POST":
         job_title = request.form["job_title"]
         skills = request.form["skills"]
-        education = request.form["education"]
+        degree = request.form["degree"]
+        field = request.form["field"]
 
         prompt = (
-            f"Generate a one-sentence LinkedIn tagline for a {job_title} "
-            f"who is skilled in {skills} and has a background in {education}."
+            f"Write a one-sentence, third-person LinkedIn tagline for a {job_title} "
+            f"who is skilled in {skills} and holds a {degree} in {field}."
         )
 
         result = generator(prompt, max_length=40, temperature=0.9)
