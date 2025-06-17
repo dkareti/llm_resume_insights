@@ -1,7 +1,7 @@
 # llm_resume_insights
 
 This is a web app that allows the user to upload a pdf resume and 
-the app returns an AI-generated critique using Hugging Face's `Mistral-7B-Instruct`
+the app returns an AI-generated critique using Hugging Face's `distilgpt2`
 model.
 
 To run this:

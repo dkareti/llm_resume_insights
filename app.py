@@ -4,7 +4,7 @@ import fitz  # PyMuPDF
 import os
 
 app = Flask(__name__)
-generator = pipeline("text-generation", model="mistralai/Mistral-7B-Instruct", max_length=1024)
+generator = pipeline("text-generation", model="distilgpt2")
 
 def extract_text(file):
     doc = fitz.open(stream=file.read(), filetype="pdf")
