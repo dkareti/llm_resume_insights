@@ -7,36 +7,68 @@
 
 
 body {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  background: var(--off-white);
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #e0eafc, #cfdef3);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .container {
-  max-width: 700px;
-  margin: auto;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  background-color: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 90%;
+  max-width: 600px;
 }
 
-h1, h2 {
+h1 {
+  font-size: 1.8rem;
   color: #333;
+  margin-bottom: 10px;
+}
+
+.subtext {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+}
+
+.upload-form input[type="file"] {
+  padding: 8px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
 }
 
 button {
-  padding: 10px 20px;
-  background: var(--light-blue);
+  padding: 12px 25px;
+  background-color: var(--light-blue);
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-pre {
-  white-space: pre-wrap;
-  background: var(--beige);
-  padding: 10px;
-  border-radius: 5px;
+button:hover {
+  background-color: #005fa3;
+}
+
+.output {
+  margin-top: 30px;
+  background-color: #f0faff;
+  border: 1px solid #cce5ff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.output h2 {
+  color: var(--light-blue);
+  margin-bottom: 10px;
 }

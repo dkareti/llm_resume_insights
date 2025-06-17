@@ -1,21 +1,25 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-  <title>LLM Resume Critique</title>
+  <meta charset="utf-8">
+  <title>AI Resume Tagline Generator</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <h1>Upload Your Resume (PDF)</h1>
-    <form method="post" enctype="multipart/form-data">
+    <h1>Generate Your AI-Powered Tagline</h1>
+    <p class="subtext">Upload your resume and get a personalized, professional tagline in seconds. </p>
+
+    <form method="post" enctype="multipart/form-data" class="upload-form">
       <input type="file" name="resume" accept=".pdf" required>
-      <button type="submit">Submit</button>
+      <button type="submit">Generate Tagline</button>
     </form>
 
-    {% if critique %}
+    {% if tagline %}
     <div class="output">
-      <h2>LLM Feedback:</h2>
-      <pre>{{ critique }}</pre>
+      <h2>Your AI-Generated Tagline</h2>
+      <p>{{ tagline }}</p>
     </div>
     {% endif %}
   </div>
