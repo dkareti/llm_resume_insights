@@ -1,10 +1,14 @@
 from flask import Flask, request, render_template
 from transformers import pipeline
-import fitz  # PyMuPDF
-import os
+import torch
+
+# Optimize for Apple Silicon CPU usage
+torch.set_num_threads(4)
 
 app = Flask(__name__)
-generator = pipeline("text-generation", model="distilgpt2")
+
+# Load the instruction-tuned model
+generator = pipeline("text2text-generation", model="google/flan-t5-base")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -15,15 +19,13 @@ def index():
         education = request.form["education"]
 
         prompt = (
-            "Job Title: Software Engineer\n"
-            "Skills: Python, AI, Prompt Engineering\n"
-            "Education: M.Eng in Computer Engineering at Dartmouth College\n"
-            "Tagline:"
+            f"Create a professional tagline for a {job_title} skilled in {skills}, "
+            f"with a background in {education}."
         )
 
-        result = generator(prompt, max_length=60, do_sample=True, temperature=0.9)
-        tagline = result[0]["generated_text"]
+        result = generator(prompt, max_length=40, temperature=0.9)
+        tagline = result[0]["generated_text"].strip()
     return render_template("index.html", tagline=tagline)
-    
-if __name__ == '__main__':
-    app.run(port=3001)
+
+if __name__ == "__main__":
+    app.run(debug=True)
