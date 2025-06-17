@@ -1,14 +1,9 @@
 from flask import Flask, request, render_template
 from transformers import pipeline
-import torch
 import os
 
-# Optimize for Apple Silicon CPU usage
-torch.set_num_threads(4)
-
-generator = None  # Global placeholder for the model
-
 app = Flask(__name__)
+generator = None  # define globally but not load
 
 def get_generator():
     global generator
@@ -30,14 +25,14 @@ def index():
             f"who is skilled in {skills} and holds a {degree} in {field}."
         )
 
-        gen = get_generator()
-        result = gen(prompt, max_length=40, temperature=0.9)
-        tagline = result[0]["generated_text"].strip()
+        try:
+            result = get_generator()(prompt, max_length=40, temperature=0.9)
+            tagline = result[0]["generated_text"].strip()
+        except Exception as e:
+            tagline = f"Error: {str(e)}"
+
     return render_template("index.html", tagline=tagline)
 
-@app.route("/ping")
-def ping():
-    return "Flask is alive!"
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
