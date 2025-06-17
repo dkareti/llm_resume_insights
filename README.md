@@ -1,8 +1,8 @@
 # llm_resume_insights
 
 This is a web app that allows the user to upload a pdf resume and 
-the app returns an AI-generated tagline using Hugging Face's `distilgpt2`
-model.
+the app returns an AI-generated tagline using the `google/flan-t5-base` model
+which is hosted on Hugging Face.
 The llm generates a summary suitable for LinkedIn headlines, bios, or portfolio intros.
 
 
