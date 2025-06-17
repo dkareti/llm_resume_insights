@@ -11,9 +11,11 @@
     <h1>Generate Your AI-Powered Tagline</h1>
     <p class="subtext">Upload your resume and get a personalized, professional tagline in seconds. </p>
 
-    <form method="post" enctype="multipart/form-data" class="upload-form">
-      <input type="file" name="resume" accept=".pdf" required>
-      <button type="submit">Generate Tagline</button>
+    <form method="post">
+        <input type="text" name="job_title" placeholder="Job Title (e.g., Data Scientist)" required>
+        <input type="text" name="skills" placeholder="Key Skills (e.g., Python, NLP, Flask)" required>
+        <input type="text" name="education" placeholder="Education or Background (e.g., MS in Computer Engineering)" required>
+        <button type="submit">Generate Tagline</button>
     </form>
 
     {% if tagline %}
