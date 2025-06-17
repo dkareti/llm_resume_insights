@@ -1,0 +1,42 @@
+:root{
+    --off-white: #f9f9f9;
+    --light-blue: #007acc;
+    --beige: #efefef;
+}
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: var(--off-white);
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+  color: #333;
+}
+
+button {
+  padding: 10px 20px;
+  background: var(--light-blue);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+pre {
+  white-space: pre-wrap;
+  background: var(--beige);
+  padding: 10px;
+  border-radius: 5px;
+}

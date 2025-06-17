@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <title>LLM Resume Critique</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Upload Your Resume (PDF)</h1>
+    <form method="post" enctype="multipart/form-data">
+      <input type="file" name="resume" accept=".pdf" required>
+      <button type="submit">Submit</button>
+    </form>
+
+    {% if critique %}
+    <div class="output">
+      <h2>LLM Feedback:</h2>
+      <pre>{{ critique }}</pre>
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>
