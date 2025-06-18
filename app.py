@@ -14,6 +14,22 @@ def get_generator():
         generator = pipeline("text2text-generation", model="google/flan-t5-base")
     return generator
 
+'''
+This function ensures that the degree is capatilized if the user enters 
+'masters', 'bachelors' or 'phd'
+'''
+def format_degree(degree):
+    degree = degree.lower()
+    if "master" in degree:
+        return "Master’s"
+    elif "bachelor" in degree:
+        return "Bachelor’s"
+    elif "phd" in degree or "doctor" in degree:
+        return "Ph.D."
+    return degree.capitalize()
+
+
+
 @app.route("/", methods=["GET", "POST"])
 def index():
     tagline = None
@@ -25,7 +41,7 @@ def index():
 
         prompt = (
             f"Write a one-sentence, third-person LinkedIn tagline for a {job_title} "
-            f"who is skilled in {skills} and who holds a {degree} in {field}."
+            f"who is skilled in {skills}, with a {format_degree(degree)} in {field}."
         )
 
         try:
