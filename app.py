@@ -25,7 +25,7 @@ def index():
 
         prompt = (
             f"Write a one-sentence, third-person LinkedIn tagline for a {job_title} "
-            f"who is skilled in {skills} and holds a {degree} in {field}."
+            f"who is skilled in {skills} and who holds a {degree} in {field}."
         )
 
         try:
