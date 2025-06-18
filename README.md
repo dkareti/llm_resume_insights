@@ -13,29 +13,20 @@ To run this:
 
 ### File Structure
 llm_resume_critic/
+* app.py
+* requirements.txt
+* README.md
+* .gitignore
+* templates/
+*   index.html
+* static
+*   style.css
 
-├── app.py
-
-├── requirements.txt
-
-├── README.md
-
-├── .gitignore
-
-├── templates/
-
-│   └── index.html
-
-└── static/
-
-|    └── style.css
 
 
 
 To get better performance use different models BUT more parameters needs more GPU power.
 
-I deployed this web app on Render: the link is 
 
-https://llm-tagline-generator.onrender.com/
 
 
